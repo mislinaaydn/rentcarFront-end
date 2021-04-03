@@ -1,0 +1,29 @@
+<div class ="mx-4 my-2 mr-2">
+
+
+<table class="table" style="background-color: #ffffff9f">
+  <thead>
+    <tr></tr>
+  </thead>
+  <tr>
+    <td (click)="clearCurrentBrand()" routerLink="/cars" [class]="getAllBrandClass()">
+      <h5 >Tüm Modeller</h5>
+     
+    </td> 
+  
+    <td  
+    
+      (click)="setCurrentBrand(brand)"
+      routerLink="/cars/brand/{{ brand.brandId }}"
+      *ngFor="let brand of brands"
+      [class]="getCurrentBrandClass(brand)"
+    >
+      <h6>{{ brand.brandName }}</h6>
+    </td>
+
+    <h5 *ngIf="currentBrand">{{ currentBrand.brandName }} Seçtiniz :)</h5>
+  </tr>
+ 
+</table>
+</div>
+

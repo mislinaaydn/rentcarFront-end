@@ -1,0 +1,26 @@
+<div class ="mx-4 my-2 mr-2">
+<table class="table" style="background-color: #ffffff9f">
+  <thead>
+    <tr></tr>
+  </thead>
+  <tr>
+    <td (click)="clearCurrentColor()" routerLink="/cars" [class]="getAllColorClass()">
+      <h5 >Tüm Renkler</h5>
+     
+    </td> 
+   
+    <td  
+      (click)="setCurrentColor(color)"
+      routerLink="/cars/color/{{ color.colorId }}"
+      *ngFor="let color of colors"
+      [class]="getCurrentColorClass(color)"
+    >
+      <h6>{{ color.colorName }}</h6>
+    </td>
+
+    <h5 *ngIf="currentColor">{{ currentColor.colorName }} Seçtiniz :)</h5>
+  </tr>
+ 
+</table>
+</div>
+

@@ -1,0 +1,45 @@
+
+<div *ngIf ="dataLoaded == false" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div> 
+<div col-md-6> 
+
+</div>
+<div class="col-6"> 
+<div class="mb-2">
+<label for="filterText" class="form-label">  </label>
+<input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" 
+placeholder="Araç Ara">
+</div>
+</div>
+<div *ngIf="filterText.length>2"  class="alert alert-primary" > 
+<h6 class="text-center" > {{ filterText }} aradınız :) </h6> 
+</div>
+
+<div class="row row-cols-6 row-cols-md-6 g-6 " >  
+
+<div class="card mb-6 col-md-6  mx-4 mt-5" style="width: 23rem;" *ngFor="let car of cars | filterPipe:filterText ">
+<h2 style="background-color: #8b33339f;" class="text-center" >Kiralık Araç</h2> 
+<div >  
+<img
+          src="{{apiUrl+car.carImagePath}}" 
+            class=" card-img-top"
+            width="400"
+            height="250"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center text-danger"> misgibiyazilim </h5>
+          </div>
+ <ul>
+   <li> <h5> Marka : {{car.brandName}} </h5>  </li>
+   <li>  <h5> Renk : {{car.colorName}} </h5> </li>
+   <li> <h4>  {{car.dailyPrice | currency :"TRY":" " }}₺ / Günlük </h4> </li>
+ </ul>
+
+ <h5 class="card-text text-primary text-center" >  {{car.description}}   </h5>
+ <div class="card-footer">
+  <a  routerLink="/cars/detail/{{car.carId}}"  class="btn btn-outline-secondary "> Detaylar </a>
+ </div>
+</div>
+</div>
+</div>
