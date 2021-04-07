@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { RentalService } from 'src/app/services/rental.service';
 import { Customer } from 'src/app/models/customer';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-rental',
@@ -26,9 +24,7 @@ export class RentalComponent implements OnInit {
   maxMinDate: string | null;
   firstDateSelected: boolean = false;
 
-  constructor(private rentalService: RentalService,
-    private router: Router
-    ) {}
+  constructor(private rentalService: RentalService, private router: Router) {}
 
   ngOnInit(): void {
     this.getRentals();
@@ -39,11 +35,4 @@ export class RentalComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-  getMinDate(){
-    var today  = new Date();
-   
-    today.setDate(today.getDate() );
-    return today.toISOString().slice(0,10)
-  }
-
 }

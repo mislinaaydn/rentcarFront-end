@@ -21,10 +21,11 @@
 </div>
 
 <div *ngIf="filterText.length > 2" class="alert alert-primary">
-  <h6 class="text-center">{{ filterText }} aradınız :)</h6>
+  <h6 class="text-center">{{ filterText }} aradınız</h6>
 </div>
 <br /><br />
 <div class="row row-cols-5 row-cols-md-5 g-5">
+  
   <div
     class="card mb-2 col-md-2 mx-3 mt-3"
     style="width: 24rem"
@@ -39,7 +40,7 @@
         height="250"
       />
       <div class="card-body">
-        <h5 class="card-title text-center text-primary">misgibiyazilim</h5>
+        <h5 class="card-title text-center text-danger">misgibiyazilim</h5>
       </div>
       <ul>
         <li>
@@ -57,7 +58,7 @@
       <div class="card-footer">
         <a
           routerLink="/cars/detail/{{ car.carId }}"
-          class="btn btn-outline-secondary"
+          class="btn btn-outline-dark"
         >
           Detaylar
         </a>

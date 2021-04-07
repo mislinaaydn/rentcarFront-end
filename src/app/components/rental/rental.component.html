@@ -79,13 +79,12 @@
       </label>
       <div class="form-group">
         <input
-        class="form-control"
-        min="{{ getMinDate() }}"
-        value="{{ getMinDate() }}"
-        type="date"
-        [(ngModel)]="rentDate"
-       
-      />
+          type="date"
+          name="bday"
+          max="3000-12-31"
+          min="1000-01-01"
+          class="form-control"
+        />
       </div>
     </div>
     <div class="mb-3 col-md-6">
@@ -94,13 +93,12 @@
       >
       <div class="form-group">
         <input
-        class="form-control"
-        min="{{ getMinDate() }}"
-        value="{{ getMinDate() }}"
-        type="date"
-        [(ngModel)]="returnDate"
-       
-      />
+          type="date"
+          name="bday"
+          min="1000-01-01"
+          max="3000-12-31"
+          class="form-control"
+        />
       </div>
       <br />
     </div>
