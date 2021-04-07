@@ -1,74 +1,94 @@
-<br /><br />
+<br>
+<br>
 
-<h2 class="text-center">Araç bilgileri</h2>
-<br />
-<div >
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div *ngFor="let carImage of carImages" [class]="getCurrentImageClass(carImage)">
-        <img src="{{apiUrl+carImage.imagePath}}" class="d-block w-100" alt="...">
-      </div>
-    
+<button routerLink="/cars" type="button" class="btn-close"  aria-label="Close" ></button>
+<h2 class="d-flex justify-content-center">CAR DETAILS</h2>
+<br>
+
+
+<div class="container" >
+    <div id="carouselExampleControls" class="carousel slide  " data-bs-ride="carousel">
+      <div class="carousel-inner">
+      
+        <div *ngFor="let carImage of carImages"
+         [class]="getCurrentImageClass(carImage)">
+          <img src="{{apiUrl+car.carImagePath}}" class="d-block w-80 center rounded mx-auto d-block" alt="">
+        </div>
+       </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+
+
+<div >  
+<table class="table table-hover table-dark container my-3 px-4 "  >
+    <thead>
+      <tr >
+        <th >#</th>
+        <th >Model ismi</th>
+        <th >Marka</th>
+        <th >Renk</th>
+        <th >Model Yılı</th>
+        <th >Günlük Fiyatı +KDV</th>
+        <th >Haftalık Fiyatı +KDV</th>
+        <th >Aylık Fiyatı +KDV</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carImage of carImages" >
+        <td>  <h3> {{car.carId}} </h3> </td>
+      
+        <td> <h3> {{car.brandName}} </h3> </td>
+        <td> <h3> {{car.colorName}} </h3> </td>
+        <td> <h3> {{car.modelYear}} </h3> </td>
+        <td> <h3>  {{car.dailyPrice | vatAdded:18 | currency : "TRY":"" }} ₺ </h3></td>
+        <td> <h3>  {{car.dailyPrice | vatweekly:18  | currency : "TRY":"" }} ₺ </h3></td>
+        <td> <h3>  {{car.dailyPrice | vatmonthly:18  | currency : "TRY":"" }} ₺ </h3></td>
+        <td> <button  routerLink ="/rentals" type="button" class="btn btn-outline-warning btn-lg position-relative">  
+          <h2> Kirala </h2>  </button> </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<table class="table table-hover table-dark container">
-  <thead>
-    <tr>
-      <th scope="col">Marka</th>
-      <th scope="col">Model ismi</th>
-      <th scope="col">Renk</th>
-      <th scope="col">Model Yılı</th>
-      <th scope="col">Günlük Fiyatı</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr >
-      <td>{{ car.carId }}</td>
-      <td>{{ car.brandName }}</td>
-      <td>{{ car.modelName }}</td>
-      <td>{{ car.colorName }}</td>
-      <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
-    </tr>
-  </tbody>
-</table>
-<table class="table table-dark container">
-  <thead>
-    <tr>
-      <th class="bg-warning" scope="col"><h2>Açıklama</h2></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr >
-      <th scope="row">
-        <h5 class="font-monospace">{{ car.description }}</h5>
-      </th>
-    </tr>
-    <tr>
-      <th class="bg-info"><h2>Araba Kiralama Şartlar !</h2></th>
-    </tr>
-    <tr>
-      <th scope="row">
-        <h5 class="font-monospace">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-          perferendis excepturi reiciendis fugiat ipsam tenetur deserunt
-          voluptate dolores fugit temporibus consequuntur aperiam esse
-          recusandae enim quidem beatae provident, suscipit dolorum? Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Repellendus deserunt
-          voluptatem repudiandae ducimus quis similique voluptates tenetur cum
-          placeat eaque esse recusandae omnis et, quae facilis accusamus
-          temporibus perferendis ipsa!
-        </h5>
-      </th>
-    </tr>
-  </tbody>
-</table>
+
+
+  <table class="table table-dark container"  >   
+
+    <thead> 
+        <tr >
+            <th  class="bg-primary" scope="col"> <h2> Açıklama </h2>  </th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr  >
+            <th scope="row"> <h5 class="font-monospace mx-4 my-2" > <br>  {{car.description}}  <br><hr>
+                <h5 class="font-monospace" >  
+                    Haftalık kiralama'da 1 gün bizden  
+                    <br> 
+                    Aylık kiralama'da 3 gün bizden 
+                </h5>     
+            </h5>  </th>
+               
+        </tr>
+        <tr > 
+            <th  class="bg-primary" > <h2> Araba Kiralama  Şartları !</h2> </th>
+        </tr>
+        <tr> 
+            <th scope="row"> 
+                <h5 class="font-monospace  mx-4 my-2" >  
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quidem hic recusandae exercitationem, 
+               nemo dolorem reiciendis distinctio magnam expedita natus facilis consequatur perferendis ut tenetur, 
+               delectus illum, quia dolorum at?   </h5>   </th>
+        </tr>
+    </tbody>
+
+  </table>

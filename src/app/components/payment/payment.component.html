@@ -1,0 +1,114 @@
+<br /><br /><br />
+
+<button
+  routerLink="/cars"
+  type="button"
+  class="btn-close"
+  aria-label="Close"
+></button>
+<div class="container">
+  <div class="card">
+    <div class="card-top border-bottom text-center">
+      <div class="alert alert-dark" role="alert">
+        <h4 class="alert-heading">Ödeme Sayfası</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="left border">
+              <div class="row">
+                <div class="icons">
+                  <img
+                    src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                  />
+                  <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                  <img
+                    src="https://img.icons8.com/color/48/000000/maestro.png"
+                  />
+                </div>
+
+                <form class="">
+                  <br />
+                  <br />
+                  <br />
+                  <h5>Kartın üzerindeki isim</h5>
+                  <div class="col-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Kart kullanıcısı isim-soyisim giriniz"
+                    />
+                  </div>
+                  <br />
+                  <br />
+                  <div>
+                    <h5>Kart Numarası</h5>
+                    <div class="form-row">
+                      <div class="col-6">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Kart numarasını giriniz"
+                        />
+                      </div>
+                      <br />
+                      <br />
+                      <h5>Kart Cvv</h5>
+                      <div class="col-6">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Kart Cvv giriniz"
+                        />
+                        <h6>--Kartınızın arkasındaki 3 haneli kod--</h6>
+                      </div>
+                      <br />
+                      <br />
+                    </div>
+                  </div>
+
+                  <br />
+                  <br />
+                  <button type="submit" class="btn btn-primary mb-2">
+                    Kiralamayı tamamla
+                  </button>
+                  <div class="col mx-5">
+                    <div class="col mx-5">
+                      <div
+                        class="card border-success mb-3"
+                        style="max-width: 18rem"
+                      >
+                        <div class="card-header bg-transparent border-success">
+                          <h3>İşlem Özeti</h3>
+                        </div>
+                        <div
+                          class="card-body text-success"
+                          *ngFor="let rental of rentals"
+                        >
+                          <li class="list-group-item list-group-item-secondary">
+                            <b> Model İsmi : {{ rental.brandName }}</b>
+                          </li>
+
+                          <li class="list-group-item list-group-item-secondary">
+                            <b> Alış Tarihi :{{ rental.rentDate }} </b>
+                          </li>
+                          <li class="list-group-item list-group-item-secondary">
+                            <b> Teslim Tarihi :{{ rental.returnDate }}</b>
+                          </li>
+                          <br />
+                          <h4 class="card-title">
+                            Toplam Tutar : <b> ? ₺ </b>
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

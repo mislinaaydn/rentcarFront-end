@@ -1,31 +1,119 @@
-<div
-  *ngIf="dataLoaded == false"
-  class="spinner-border text-warning"
-  role="status"
->
-  <span class="visually-hidden">Loading...</span>
-</div>
-<h3>KİRALAMA</h3>
-<table class="table" *ngIf="dataLoaded == true">
-  <thead>
-    <tr class="table table-success">
-      <th></th>
-      <th>Kiralama Id</th>
-      <th>marka adı</th>
-      <th>isim</th>
-      <th>soyisim</th>
-      <th>Teslim alma Tarihi</th>
-      <th>Teslim Edilme Tarihi</th>
-    </tr>
-  </thead>
+<br />
+<br />
 
-  <tr *ngFor="let rental of rentals">
-    <td></td>
-    <td>{{ rental.rentalId }}</td>
-    <td>{{ rental.brandName }}</td>
-    <td>{{ rental.firstName }}</td>
-    <td>{{ rental.lastName }}</td>
-    <td>{{ rental.rentDate }}</td>
-    <td>{{ rental.returnDate }}</td>
-  </tr>
-</table>
+ <button routerLink="/cars" type="button" class="btn-close"  aria-label="Close" ></button>
+
+<br />
+<br />
+
+<br />
+<br />
+<br />
+<br />
+
+<!--Grid row-->
+<div class="row">
+  <!--Grid column-->
+
+  <!--Grid column-->
+  <div class="col-md-6 mb-4">
+    <!--Card-->
+    <div class="card card-cascade narrower">
+      <!--Card image-->
+      <div class="view view-cascade gradient-card-header peach-gradient">
+        <h5 class="mb-0"><h3 class="text-center">Aracınızın Konumu</h3></h5>
+      </div>
+      <!--/Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+        <!--Google map-->
+        <div
+          id="map-container-google-9"
+          class="z-depth-1-half map-container-5"
+          style="height: 300px"
+        >
+          <iframe
+            src="https://www.google.com/maps/place/Su%C5%9Fehri,+Sivas/@40.1715337,38.0818471,15z/data=!4m5!3m4!1s0x407b6e0d259b7e9d:0x76dac9f83d867c28!8m2!3d40.163154!4d38.0915"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+      <!--/.Card content-->
+    </div>
+    <!--/.Card-->
+  </div>
+  <!--Grid column-->
+</div>
+<!--Grid row-->
+
+<form>
+  <div class="mb-3 col-md-6">
+    <label for="exampleInputEmail1" class="form-label">
+      <h2 class="text-light">Aracı teslim alacak kişinin adı - soyadı</h2>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="İsim - soyisim"
+    />
+    <h2 class="form-label text-light">
+      Araçı Teslim etmek istediğiniz konumu seçin
+    </h2>
+    <select class="form-control form-control-lg">
+      <option>Şube Seç</option>
+      <option>Sivas / Aslan Otopark</option>
+      <option>Sivas / Yıldız Otopark</option>
+      <option>Sivas / Sarı Otopark</option>
+      <option>Sivas / Mis Otopark</option>
+      <option>Sivas / Şen Otopark</option>
+    </select>
+    <div class="mb-3 col-md-6">
+      <label for="exampleInputEmail1" class="form-label">
+        <h2 class="text-light">Alış Tarihi</h2>
+      </label>
+      <div class="form-group">
+        <input
+        class="form-control"
+        min="{{ getMinDate() }}"
+        value="{{ getMinDate() }}"
+        type="date"
+        [(ngModel)]="rentDate"
+       
+      />
+      </div>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label for="exampleInputPassword1" class="form-label text-light"
+        ><h2>Teslim Tarihi</h2></label
+      >
+      <div class="form-group">
+        <input
+        class="form-control"
+        min="{{ getMinDate() }}"
+        value="{{ getMinDate() }}"
+        type="date"
+        [(ngModel)]="returnDate"
+       
+      />
+      </div>
+      <br />
+    </div>
+  </div>
+
+  <div></div>
+  <br />
+
+  <br />
+  <button routerLink ="/payment" type="button" class="btn btn-warning btn-lg"><h4>devam</h4></button>
+  <br />
+  <br />
+</form>
+<br />
+<br />
+<br />
