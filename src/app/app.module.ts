@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     FooterComponent,
     PaymentComponent,
     CarAddComponent,
+    RentalAddComponent,
     
   ],
   imports: [

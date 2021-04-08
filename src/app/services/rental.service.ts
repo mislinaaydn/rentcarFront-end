@@ -6,6 +6,7 @@ import { carImage } from '../models/carImage';
 import { Customer } from '../models/customer';
 import { listResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
+import { ResponseModel } from '../models/responseModel';
 
 
 @Injectable({
@@ -37,4 +38,7 @@ export class RentalService {
     let newPath = this.apiUrl + "cars/getcardetail?carId="+carId;
     return this.httpClient.get<listResponseModel<Car>>(newPath);
   }
+  add(rental:Rental):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"rentals/add",rental)
+}
 }

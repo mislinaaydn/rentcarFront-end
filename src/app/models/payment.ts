@@ -1,8 +1,9 @@
 export interface Payment{
-    cartOwnerName:string;
+      cardOwnerName:string;
       cardNumber:string;
       expirationDate:string;
       cardCvv:number;
       customerId:number;
       paymentDate:Date;
+      
   }

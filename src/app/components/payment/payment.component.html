@@ -1,95 +1,203 @@
 <br /><br /><br />
 
-<button
-  routerLink="/cars"
-  type="button"
-  class="btn-close"
-  aria-label="Close"
-></button>
 <div class="container">
   <div class="card">
-    <div class="card-top border-bottom text-center">
-      <div class="alert alert-dark" role="alert">
-        <h4 class="alert-heading">Ödeme Sayfası</h4>
-      </div>
-      <div class="card-body">
+    <div class="alert alert-dark" role="alert">
+      <h4 class="alert-heading text-center"><h3>Ödeme Sayfası</h3></h4>
+    </div>
+    <div class="card-body">
+      <div class="card-top border-bottom text-center">
         <div class="row">
           <div class="col-md-12">
             <div class="left border">
               <div class="row">
-                <div class="icons">
-                  <img
-                    src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
-                  />
-                  <img src="https://img.icons8.com/color/48/000000/visa.png" />
-                  <img
-                    src="https://img.icons8.com/color/48/000000/maestro.png"
-                  />
-                </div>
+                <form class="bg-dark">
+                  <form class="">
+                    <br />
 
-                <form class="">
-                  <br />
-                  <br />
-                  <br />
-                  <h5>Kartın üzerindeki isim</h5>
-                  <div class="col-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Kart kullanıcısı isim-soyisim giriniz"
+                    <br />
+                  </form>
+
+                  <div class="icons">
+                    <img
+                      src="https://img.icons8.com/color/48/000000/visa.png"
+                    />
+                    <img
+                      src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                    />
+                    <img
+                      src="https://img.icons8.com/color/48/000000/maestro.png"
                     />
                   </div>
-                  <br />
-                  <br />
-                  <div>
-                    <h5>Kart Numarası</h5>
-                    <div class="form-row">
-                      <div class="col-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Kart numarasını giriniz"
-                        />
+
+                  <div class="col-md-6">
+                    <!--Blue select-->
+
+                    <div class="row justify-content-center">
+                      <div class="col-md-6 select-outline">
+                        <select
+                          class="form-control form-control-lg btn-warning"
+                        >
+                          <option value="" disabled selected>
+                            <b> Ödeme Yöntemi seç</b>
+                          </option>
+                          <option value="1">Banka Kartı</option>
+                          <option value="2">Kredi Kartı</option>
+                        </select>
                       </div>
-                      <br />
-                      <br />
-                      <h5>Kart Cvv</h5>
-                      <div class="col-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Kart Cvv giriniz"
-                        />
-                        <h6>--Kartınızın arkasındaki 3 haneli kod--</h6>
-                      </div>
-                      <br />
-                      <br />
                     </div>
                   </div>
 
                   <br />
                   <br />
-                  <button type="submit" class="btn btn-primary mb-2">
-                    Kiralamayı tamamla
-                  </button>
-                  <div class="col  mx-5 ">
 
-                    <div class="col mx-5"> 
-                    <div class="card border-success mb-3" style="max-width: 18rem;">
-                        <div class="card-header bg-transparent border-success"> <h3> İşlem Özeti </h3> </div>
-                        <div class="card-body text-success">
-                            <li class="list-group-item list-group-item-secondary"> <b> Model İsmi    : </b>  </li>
-                            <li class="list-group-item list-group-item-secondary"> <b> Renk          :</b> </li>
-                            <li class="list-group-item list-group-item-secondary"> <b> Alış Tarihi   : </b>  </li>
-                            <li class="list-group-item list-group-item-secondary"> <b> Teslim Tarihi :</b> </li>
-                            <br>
-                            <h4 class="card-title"> Toplam Tutar :  <b>  ? ₺ </b> </h4>
-                         
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="card">
+                          <div class="card-header">
+                            <h5 class="title">
+                              <h2>Banka Bilgilerinizi Eksiksiz doldurun</h2>
+                            </h5>
+                          </div>
+                          <div class="card-body">
+                            <form [formGroup]="cardAddForm">
+
+                              <div class="mb-3">
+                                <label for="customerId"
+                                  ><h3>Müsteri Numaranız</h3>
+                                </label>
+                                <div class="form-group">
+                                  <input
+                                    type="number"
+                                    id="customerId"
+                                    formControlName="customerId"
+                                    class="form-control"
+                                    placeholder="Müsteri Numaranızı giriniz"
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="cardOwnerName"
+                                  ><h3>İSİM</h3>
+                                </label>
+                                <div class="form-group">
+                                  <input
+                                    type="text"
+                                    id="cardOwnerName"
+                                    formControlName="cardOwnerName"
+                                    class="form-control"
+                                    placeholder="Kart üzerindeki ismi giriniz"
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="cardNumber">
+                                  <h3>Kart Numarası</h3>
+                                </label>
+                                <div class="form-group">
+                                  <input
+                                    type="text"
+                                    id="cardNumber"
+                                    formControlName="cardNumber"
+                                    class="form-control"
+                                    placeholder="Kart Numarasını giriniz "
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="expirationDate">
+                                  <h3>Son Kullanma Tarihi</h3>
+                                </label>
+                                <div class="form-group">
+                                  <input
+                                    type="text"
+                                    id="expirationDate"
+                                    formControlName="expirationDate"
+                                    class="form-control"
+                                    placeholder="Son Kullanma Tarihini giriniz"
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="cardCvv"> <h3>C V V</h3> </label>
+                                <div class="form-group">
+                                  <input
+                                    type="number"
+                                    id="cardCvv"
+                                    formControlName="cardCvv"
+                                    class="form-control"
+                                    placeholder="Kartın arkasındaki 3 haneli rakam"
+                                  />
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                (click)="creditPayment()"
+                                class="btn btn-lg btn-success btn-block"
+                              >
+                                Ödeme Yap
+                              </button>
+                            </form>
+                          </div>
+                          <div class="card-footer"></div>
                         </div>
-                       
+                      </div>
+                      <br />
+                      <br />
+                      <div class="col mx-5">
+                        <br />
+                        <br />
+                        <br />
+                        <div class="card mt-4">
+                          <div class="card-header text-center">
+                            <strong> <h3>İşlem Özeti</h3> </strong>
+                          </div>
+                          <div class="card-body">
+                            <table class="table text-success">
+                              <thead>
+                                <tr>
+                                  <th>Alış Tarihi</th>
+                                  <th>Teslim Tarihi</th>
+                                  <th>Marka</th>
+                                  <th>Renk</th>
+
+                                  <th>Günlük</th>
+                                  <th>Toplam</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let car of carDetails">
+                                  <td>{{ rental.rentDate }}</td>
+                                  <td>{{ rental.returnDate }}</td>
+                                  <td>{{ car.brandName }}</td>
+                                  <td>{{ car.colorName }}</td>
+
+                                  <td>{{ car.dailyPrice | currency: "₺" }}</td>
+                                  <td>
+                                    <strong class="text-danger">{{
+                                      car.dailyPrice * amountPayment
+                                        | currency: "₺"
+                                    }}</strong>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    </div>
+                  </div>
+
+                  <br />
+                  <br />
+
+                  <br />
+                  <br />
                 </form>
               </div>
             </div>

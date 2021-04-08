@@ -3,7 +3,7 @@ export interface Card{
     customerId:number;
     cardOwnerName:string;
     cardNumber:string;
-    cardExpirationDate:string;
+    expirationDate:string;
     cardCvv:number;
 }
 
