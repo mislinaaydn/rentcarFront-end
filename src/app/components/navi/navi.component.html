@@ -7,6 +7,10 @@
       <h5 class="text-center">@misgibiyazilim</h5>
       <h4>Araç Kiralama Projesi</h4>
     </a>
+    <br>
+    <a class="btn btn-outline-warning" aria-current="page" href="#">
+      <h6> TÜM ARAÇLAR</h6>
+    </a>
     <div class="container">
       <button
         class="navbar-toggler"
@@ -22,43 +26,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <h5>Araçlar</h5>
-            </a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="true"
-            >
-              Araç Kirala
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Lüks Araçlar</a></li>
-              <li><a class="dropdown-item" href="#">Geniş Araçlar </a></li>
-              <li><a class="dropdown-item" href="#">Arazi Araçlar </a></li>
-              <li>
-                <a class="dropdown-item" href="#">Orta Sekment Araçlar </a>
-              </li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Motorlar</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="https://www.instagram.com/misgibiyazilim/"
-              target="_blank"
-            >
-              Şubelerimiz
-            </a>
-          </li>
+           
+         
         </ul>
 
         <form class="d-flex">
@@ -67,7 +36,7 @@
             class="btn btn-outline-light"
             type="button"
           >
-            <h5>Giriş Yap /kayıt Ol</h5>
+            <h5>GİRİŞ YAP / KAYIT OL</h5>
           </button>
           <li></li>
           <button
@@ -75,33 +44,53 @@
             class="btn btn-outline-light"
             type="button"
           >
-            <h5>Araç Ekle</h5>
-          </button>
-          <li></li>
-          <button
-            routerLink="/cars/list"
-            class="btn btn-outline-light"
-            type="button"
-          >
-            <h5>Güncelleme - Silme</h5>
-          </button>
-<li></li>
-          <button
-            routerLink="/colors/list"
-            class="btn btn-outline-light"
-            type="button"
-          >
-            <h5> Renk Güncelleme - Silme</h5>
-          </button>
-          <li></li>
-          <button
-            routerLink="/brands/list"
-            class="btn btn-outline-light"
-            type="button"
-          >
-            <h5> Marka Güncelleme - Silme</h5>
+            <h5>ARAÇ EKLE</h5>
           </button>
         </form>
+        <li class="nav-item dropdown">
+          <a
+            class="btn btn-outline-light"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="true"
+          >
+            <h5>GÜNCELLEME / SİLME İŞLEMLERİ</h5>
+          </a>
+        
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <button
+                routerLink="/colors/list"
+                class="btn btn-outline-warning"
+                type="button"
+              >
+                <h5>RENK GÜNCELLEME - SİLME</h5>
+              </button>
+            </li>
+            <li>
+              <button
+                routerLink="/brands/list"
+                class="btn btn-outline-warning"
+                type="button"
+              >
+                <h5>MARKA GÜNCELLEME - SİLME</h5>
+              </button>
+            </li>
+            <li>
+              <button
+                routerLink="/cars/list"
+                class="btn btn-outline-warning"
+                type="button"
+              >
+                <h5>ARAÇ GÜNCELLEME - SİLME</h5>
+              </button>
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+          </ul>
+        </li>
       </div>
     </div>
   </div>

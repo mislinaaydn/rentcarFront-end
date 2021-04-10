@@ -41,19 +41,19 @@ const routes: Routes = [
   {path:"cars/add" , component:CarAddComponent,canActivate:[LoginGuard]},
   {path:"cars/update" , component:CarUpdateComponent, canActivate:[LoginGuard] },
   {path:"cars/update/:carId" , component:CarUpdateComponent, canActivate:[LoginGuard]},
-  {path:"cars/list" , component:CarListComponent},
+  {path:"cars/list" , component:CarListComponent,canActivate:[LoginGuard]},
 
-  {path:"colors/add",component:ColorAddComponent},
-  {path:"colors/update",component:ColorUpdateComponent},
+  {path:"colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
+  {path:"colors/update",component:ColorUpdateComponent,canActivate:[LoginGuard]},
   {path:"colors/update/:colorId" , component:ColorUpdateComponent, canActivate:[LoginGuard]},
-  {path:"colors/list",component:ColorListComponent},
+  {path:"colors/list",component:ColorListComponent,canActivate:[LoginGuard]},
 
-  {path:"brands/add",component:BrandAddComponent},
-  {path:"brands/update",component:BrandUpdateComponent},
+  {path:"brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
+  {path:"brands/update",component:BrandUpdateComponent,canActivate:[LoginGuard]},
   {path:"brands/update/:brandId" , component:BrandUpdateComponent, canActivate:[LoginGuard]},
-  {path:"brands/list",component:BrandListComponent},
+  {path:"brands/list",component:BrandListComponent,canActivate:[LoginGuard]},
 
-  
+  {path:"cars/filter/:brandId/:colorId",component:CarComponent},
 ];             
 
 @NgModule({
