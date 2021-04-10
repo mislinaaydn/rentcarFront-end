@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl, Validators, FormBuilder  } from "@angular/forms";
+import {  FormGroup , FormBuilder , Validators, FormControl  } from "@angular/forms";
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,17 +12,26 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
-  constructor(private formBuilder:FormBuilder,
-     private authService:AuthService, private toastrService:ToastrService) { }
+  registerForm:FormGroup;
+  
+  constructor(
+    private formBuilder:FormBuilder,
+    private authService:AuthService,
+    private toastrService:ToastrService,
+    private router:Router
+
+    ) { }
 
   ngOnInit(): void {
     this.createLoginForm();
+    this.createRegisterForm();
   }
 
   createLoginForm(){
+
     this.loginForm = this.formBuilder.group({
-      email: ["",Validators.required],
-      password:["",Validators.required]
+      email:["", Validators.required],
+      password:["", Validators.required]
     })
   }
 
@@ -31,13 +41,42 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({},this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response=>{
-        this.toastrService.success(response.message , "Başarılı giriş")
+        console.log(response)
+        this.toastrService.success(response.message,"Başarılı giriş")
         localStorage.setItem("token",response.data.token)
       },responseError=>{
-        
-        this.toastrService.error(responseError.error , "Hata")
+        //console.log(responseError)
+        this.toastrService.error(responseError.error)
       })
     }
   }
-  
+
+  createRegisterForm() {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
+  register(){
+    if (this.registerForm.valid) {
+      let registerModel = Object.assign({}, this.registerForm.value);
+      this.authService.register(registerModel).subscribe(
+        (response) => {
+          this.toastrService.success("Başarılı " , "Kayıt Olundu");
+
+
+          this.router.navigate(['login']);
+        },
+        (responseError) => {
+          console.log(responseError.error.messages);
+          this.toastrService.error(" Mevcut Kullanıcı ");
+        }
+      );
+    }
+
+  }
+
 }

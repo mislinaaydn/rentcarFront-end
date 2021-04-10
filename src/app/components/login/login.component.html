@@ -1,122 +1,138 @@
-<br />
-<br />
-<br />
-<br />
+<button
+  routerLink="/cars"
+  type="button"
+  class="btn-close"
+  aria-label="Close"
+></button>
 <div class="row">
   <div class="col-md-6 mx-auto p-2">
     <div class="card">
       <div class="login-box">
         <form [formGroup]="loginForm">
-          <div class="login-snip">
-            <input
-              id="tab-1"
-              type="radio"
-              name="tab"
-              class="sign-in"
-              checked
-            /><label for="tab-1" class="tab">Giris Yap</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
-              for="tab-2"
-              class="tab"
-              >Kayıt Ol</label
-            >
-            <div class="login-space">
-              <div class="login">
-                <div class="group">
-                  <label for="user" class="label text-warning">
-                    <h4>Email</h4>
-                  </label>
-                  <input
-                  formControlName="email"
-                    id="user"
-                    type="text"
-                    class="input"
-                    placeholder="Email giriniz"
-                  />
+          <form [formGroup]="registerForm">
+            <div class="login-snip">
+              <input
+                id="tab-1"
+                type="radio"
+                name="tab"
+                class="sign-in"
+                checked
+              />
+              <label for="tab-1" class="tab">Giris Yap</label>
+              <input id="tab-2" type="radio" name="tab" class="sign-up" />
+              <label for="tab-2" class="tab">Kayıt Ol</label>
+              <div class="login-space">
+                <div class="login">
+                  <div class="group">
+                    <label for="floatingInput" class="label text-warning">
+                      <h3>Email</h3>
+                    </label>
+                    <input
+                      formControlName="email"
+                      id="floatingInput"
+                      type="email"
+                      class="input"
+                      placeholder="Email giriniz"
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="floatingPassword" class="label text-warning">
+                      <h3>Parola</h3>
+                    </label>
+                    <input
+                      formControlName="password"
+                      id="floatingPassword"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                      placeholder="Şifrenizi girin"
+                    />
+                  </div>
+                  <div class="group">
+                    <input id="check" type="checkbox" class="check" checked />
+                    <label for="check"
+                      ><span class="icon"></span> Oturumumu açık tut
+                    </label>
+                  </div>
+
+                  <div class="group"></div>
+                  <div class="group text-center">
+                    <button (click)="login()" class="btn btn-warning btn-lg">
+                      Giriş yap
+                    </button>
+                  </div>
+
+                  <div class="hr"></div>
+                  <div class="foot">
+                    <a href="#">
+                      <h4 class="text-light">Parolanızı mı unuttunuz ?</h4>
+                    </a>
+                  </div>
                 </div>
-                <div class="group">
-                  <label for="pass" class="label text-warning">
-                    <h4>Parola</h4>
-                  </label>
-                  <input
-                    formControlName="password"
-                    id="password"
-                    type="password"
-                    class="input"
-                    data-type="password"
-                    placeholder="Şifrenizi girin"
-                  />
+
+                <!--  Kayıt Ol kısmı   -->
+
+                <div class="sign-up-form">
+                  <div class="group">
+                    <label for="firstName" class="label text-warning">
+                      <h3>İsİm</h3>
+                    </label>
+                    <input
+                      formControlName="firstName"
+                      id="firstName"
+                      type="text"
+                      class="input"
+                      placeholder="isminizi giriniz"
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="lastName" class="label text-warning">
+                      <h3>Soy İsİm</h3>
+                    </label>
+                    <input
+                      formControlName="lastName"
+                      id="lastName"
+                      type="text"
+                      class="input"
+                      data-type="text"
+                      placeholder=" soy isminizi giriniz "
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="email" class="label text-warning">
+                      <h3>Emaİl</h3>
+                    </label>
+                    <input
+                      formControlName="email"
+                      id="email"
+                      type="email"
+                      class="input"
+                      data-type="email"
+                      placeholder="email giriniz"
+                    />
+                  </div>
+                  <div class="group">
+                    <label for="password" class="label text-warning">
+                      <h3>Parola</h3></label
+                    >
+                    <input
+                      formControlName="password"
+                      id="password"
+                      type="password"
+                      class="input"
+                      placeholder="Parola giriniz"
+                    />
+                  </div>
+                  <div class="group"></div>
+                  <div class="group text-center">
+                    <button (click)="register()" class="btn btn-warning btn-lg">
+                      Giriş yap
+                    </button>
+                  </div>
                 </div>
-                <div class="group"></div>
-                <div class="group text-center">
-                  <button (click)="login()" class="btn btn-warning btn-lg">
-                    Giriş yap
-                  </button>
-                </div>
-                <div class="hr"></div>
-                <div class="foot text-light">
-                  <a href="#"> <h5>Parolanızı mı unuttunuz?</h5> </a>
-                </div>
-              </div>
-              <div class="sign-up-form">
-                <div class="group">
-                  <label for="user" class="label text-warning">
-                    <h4>İsİm</h4>
-                  </label>
-                  <input
-                    id="user"
-                    type="text"
-                    class="input"
-                    placeholder="isminizi giriniz"
-                  />
-                </div>
-                <div class="group">
-                  <label for="pass" class="label text-warning">
-                    <h4>Soy İsİm</h4>
-                  </label>
-                  <input
-                    id="pass"
-                    type="text"
-                    class="input"
-                    data-type="text"
-                    placeholder=" soy isminizi giriniz "
-                  />
-                </div>
-                <div class="group">
-                  <label for="pass" class="label text-warning">
-                    <h4>Email</h4>
-                  </label>
-                  <input
-                    id="pass"
-                    type="email"
-                    class="input"
-                    data-type="email"
-                    placeholder="email giriniz"
-                    formControlName="email"
-                  />
-                </div>
-                <div class="group">
-                  <label for="password" class="label text-warning">
-                    <h4>Parola</h4></label
-                  >
-                  <input
-                    id="pass"
-                    type="password"
-                    class="input"
-                    placeholder="Parola giriniz"
-                  />
-                </div>
-                <div class="group text-center">
-                  <input
-                    type="submit"
-                    class="btn btn-warning btn-lg"
-                    value="Kayıt Ol"
-                  />
-                </div>
-                <div class="hr"></div>
               </div>
             </div>
-          </div>
+          </form>
         </form>
       </div>
     </div>

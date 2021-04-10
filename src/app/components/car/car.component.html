@@ -1,4 +1,14 @@
-
+<div class = row>
+  <div class ="col-md-3">
+    
+      <app-filter></app-filter>
+      <app-brand></app-brand>
+      <app-color></app-color>
+     
+   
+  </div>
+  <div class ="col-md-9">
+    
 <div
   *ngIf="dataLoaded == false"
   class="spinner-border text-primary"
@@ -9,7 +19,7 @@
 <div col-md-6></div>
 
 <div class="col-6">
-  <div class="mb-2">
+  <div class="mb-4">
     <label for="filterText" class="form-label"> </label>
     <input
       type="text"
@@ -29,7 +39,7 @@
   
   <div
     class="card mb-2 col-md-2 mx-3 mt-3"
-    style="width: 24rem"
+    style="width: 23rem"
     *ngFor="let car of cars | filterPipe: filterText"
   >
   <br>
@@ -69,3 +79,5 @@
       </div>
     </div>
   </div>
+</div>
+</div>
