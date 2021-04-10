@@ -1,11 +1,17 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarUpdateComponent } from './components/car-update/car-update/car-update.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 import { CarComponent } from './components/car/car.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,7 +29,6 @@ const routes: Routes = [
   {path:"cars/detail/:carId",component:CarDetailComponent},
   {path:"rentals/:carId" ,component:RentalAddComponent},
   {path:"payments/:carId" , component:PaymentComponent},
-
   {path:"rentals/add" , component:RentalAddComponent},
  
   {path:"payment" , component:PaymentComponent},
@@ -36,8 +41,19 @@ const routes: Routes = [
   {path:"cars/add" , component:CarAddComponent,canActivate:[LoginGuard]},
   {path:"cars/update" , component:CarUpdateComponent, canActivate:[LoginGuard] },
   {path:"cars/update/:carId" , component:CarUpdateComponent, canActivate:[LoginGuard]},
-  {path:"cars/list" , component:CarListComponent,},
+  {path:"cars/list" , component:CarListComponent},
 
+  {path:"colors/add",component:ColorAddComponent},
+  {path:"colors/update",component:ColorUpdateComponent},
+  {path:"colors/update/:colorId" , component:ColorUpdateComponent, canActivate:[LoginGuard]},
+  {path:"colors/list",component:ColorListComponent},
+
+  {path:"brands/add",component:BrandAddComponent},
+  {path:"brands/update",component:BrandUpdateComponent},
+  {path:"brands/update/:brandId" , component:BrandUpdateComponent, canActivate:[LoginGuard]},
+  {path:"brands/list",component:BrandListComponent},
+
+  
 ];             
 
 @NgModule({

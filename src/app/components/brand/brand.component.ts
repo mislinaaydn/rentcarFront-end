@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
-import { brandService } from 'src/app/services/brand.service';
+import { BrandService } from 'src/app/services/brand.service';
 
 @Component({
   selector: 'app-brand',
@@ -14,7 +14,7 @@ export class BrandComponent implements OnInit {
   dataLoaded = false;
  
 
-  constructor(private brandService: brandService) {}
+  constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {
     this.getBrands();

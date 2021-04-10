@@ -29,6 +29,12 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CarUpdateComponent } from './components/car-update/car-update/car-update.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +58,12 @@ import { CarListComponent } from './components/car-list/car-list.component';
     LoginComponent,
     CarUpdateComponent,
     CarListComponent,
+    ColorAddComponent,
+    ColorListComponent,
+    ColorUpdateComponent,
+    BrandAddComponent,
+    BrandListComponent,
+    BrandUpdateComponent,
     
   ],
   imports: [

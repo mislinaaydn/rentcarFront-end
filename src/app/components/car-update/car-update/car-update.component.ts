@@ -7,7 +7,7 @@ import { Car } from 'src/app/models/car';
 import { Color } from 'src/app/models/color';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
-import { brandService } from 'src/app/services/brand.service';
+import { BrandService } from 'src/app/services/brand.service';
 import { CarDetailComponent } from '../../car/car-detail/car-detail.component';
 
 @Component({
@@ -25,7 +25,7 @@ export class CarUpdateComponent implements OnInit {
     private formBuilder : FormBuilder,
     private carService : CarService,
     private colorService : ColorService,
-    private brandService : brandService,
+    private brandService : BrandService,
     private toastrService : ToastrService,
     private activatedRoute : ActivatedRoute
    ) {}
