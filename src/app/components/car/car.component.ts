@@ -13,7 +13,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CarComponent implements OnInit {
   cars: Car[] = [];
   carimages: carImage;
-  dataLoaded = false;
+  dataLoaded = true;
   filterText = '';
   apiUrl = 'https://localhost:44324/';
   constructor(

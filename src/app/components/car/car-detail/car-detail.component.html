@@ -1,12 +1,12 @@
 <br />
-<br />
+
 <button
   routerLink="/cars"
   type="button"
   class="btn-close"
   aria-label="Close"
 ></button>
-<h2 class="d-flex justify-content-center">CAR DETAILS</h2>
+<h2 class="d-flex justify-content-center">ARABA DETAYLARI</h2>
 <br />
 
 <div class="container">
@@ -48,9 +48,9 @@
     </button>
   </div>
 </div>
-
+<br>
 <div>
-  <table class="table table-hover table-dark container my-3 px-4">
+  <table class="table table-success container my-3 px-4">
     <thead>
       <tr>
         <th>Araç Id</th>
@@ -95,20 +95,20 @@
           <button
             routerLink="/rentals/{{car.carId}}"
             type="button"
-            class="btn btn-outline-light btn-lg position-relative"
+            class="btn btn-outline-dark"
           >
-            <h2>Kirala</h2>
+            <h3>Kirala</h3>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
+<br>
 <table class="table table-dark container">
   <thead>
     <tr>
-      <th class="bg-success" scope="col"><h2>---Açıklama---</h2></th>
+      <th class="bg-danger text-center" scope="col"><h2>---Açıklama---</h2></th>
     </tr>
   </thead>
   <tbody>
@@ -116,7 +116,7 @@
       <th scope="row">
         <h5 class="font-monospace mx-4 my-2">
           <br />
-          {{ car.description }} <br />
+          {{ car.description}} <br />
           <hr />
           <h5 class="font-monospace">
             Haftalık kiralama'da 1 gün bizden.
@@ -126,8 +126,9 @@
         </h5>
       </th>
     </tr>
+    <br />
     <tr>
-      <th class="bg-primary"><h2>---Araba Kiralama Şartları</h2></th>
+      <th class="bg-danger text-center"><h2>---Araba Kiralama Şartları---</h2></th>
     </tr>
     <tr>
       <th scope="row">

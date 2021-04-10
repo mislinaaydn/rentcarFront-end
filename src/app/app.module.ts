@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +25,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CarUpdateComponent } from './components/car-update/car-update/car-update.component';
+import { CarListComponent } from './components/car-list/car-list.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,9 @@ import { RentalAddComponent } from './components/rental-add/rental-add.component
     PaymentComponent,
     CarAddComponent,
     RentalAddComponent,
+    LoginComponent,
+    CarUpdateComponent,
+    CarListComponent,
     
   ],
   imports: [
@@ -58,7 +65,7 @@ import { RentalAddComponent } from './components/rental-add/rental-add.component
       positionClass:"toast-top-right"
     })
   ],
-  providers: [],
+  providers: [ {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

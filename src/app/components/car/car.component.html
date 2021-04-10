@@ -1,3 +1,4 @@
+
 <div
   *ngIf="dataLoaded == false"
   class="spinner-border text-primary"
@@ -31,7 +32,7 @@
     style="width: 24rem"
     *ngFor="let car of cars | filterPipe: filterText"
   >
-  
+  <br>
     <div>
       <img
         src="{{ apiUrl + car.carImagePath }}"
@@ -56,13 +57,15 @@
 
       <h5 class="card-text text-primary text-center">{{ car.description }}</h5>
       <div class="card-footer">
-        <a
-          routerLink="/cars/detail/{{ car.carId }}"
-          class="btn btn-outline-dark"
+       
+       
+         <a
+         routerLink="/cars/detail/{{ car.carId }}"
+          class="btn btn-outline-dark  "
         >
           Detaylar
         </a>
+      </div> 
       </div>
     </div>
   </div>
-</div>

@@ -8,6 +8,9 @@ import { Brand } from '../models/brand';
   providedIn: 'root'
 })
 export class brandService {
+  getCars() {
+    throw new Error('Method not implemented.');
+  }
 
   apiUrl = "https://localhost:44324/api/brands/getall"
   constructor(private httpClient:HttpClient) { }
