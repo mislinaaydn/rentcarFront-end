@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Color } from '../models/color';
 import { ItemResponseModel } from '../models/ItemResponseModel';
-import { listResponseModel } from '../models/listResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
@@ -15,21 +15,21 @@ export class ColorService {
   apiUrl ='https://localhost:44324/api/colors/getall'
   constructor(private httpClient:HttpClient  ) { }
 
-  getColors():Observable<listResponseModel<Color>>{
-    return this.httpClient.get<listResponseModel<Color>>(this.apiUrl)
+  getColors():Observable<ListResponseModel<Color>>{
+    return this.httpClient.get<ListResponseModel<Color>>(this.apiUrl)
   }
   add(color: Color): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "add", color);
   }
   
-  update(color:Color):Observable<listResponseModel<Color>>{
+  update(color:Color):Observable<ListResponseModel<Color>>{
     let newPath = this.apiUrl + "update";
-    return this.httpClient.post<listResponseModel<Color>>(newPath,color);
+    return this.httpClient.post<ListResponseModel<Color>>(newPath,color);
   }
 
-  delete(color:Color):Observable<listResponseModel<Color>>{
+  delete(color:Color):Observable<ListResponseModel<Color>>{
     let newPath = this.apiUrl + "delete";
-    return this.httpClient.post<listResponseModel<Color>>(newPath,color);
+    return this.httpClient.post<ListResponseModel<Color>>(newPath,color);
   
 }
 getbyId(colorId:number):Observable<ItemResponseModel<Color>>{

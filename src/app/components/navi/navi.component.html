@@ -1,3 +1,4 @@
+
 <nav
   class="navbar navbar-expand-lg navbar-dark"
   style="background-color: #0a1c36"
@@ -9,8 +10,8 @@
     </a>
     <br>
     <a class="btn btn-outline-warning" aria-current="page" href="#">
-      <h6> TÜM ARAÇLAR</h6>
-    </a>
+      <h6>ANASAYFA</h6>
+    </a> <app-cart-summary></app-cart-summary>
     <div class="container">
       <button
         class="navbar-toggler"
@@ -25,20 +26,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
           <li class="nav-item">
            
          
+         
         </ul>
-
+       
         <form class="d-flex">
-          <button
-            routerLink="/login"
-            class="btn btn-outline-light"
-            type="button"
-          >
-            <h5>GİRİŞ YAP</h5>
-          </button>
-          
+         
           
         </form>
         <li class="nav-item dropdown">
@@ -49,6 +45,7 @@
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="true"
+            
           >
           
             <h5>GÜNCELLEME / SİLME </h5>
@@ -121,6 +118,7 @@
           </button>
         </li>
         <li>
+
           <button
             routerLink="/cars/add"
             class="btn btn-outline-warning"
@@ -132,8 +130,27 @@
 
         <li><hr class="dropdown-divider" /></li>
       </ul>
-   
+      <li></li>
+      <form class="d-flex" *ngIf="checkIfLogin()==false">
+        <button   routerLink="/login"  class="btn btn-lg btn-info" type="button"> <h4> Giriş Yap </h4>   </button> 
+      </form>
+
+      <div class="dropdown" *ngIf="checkIfLogin()==true" >
+
+        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" 
+        data-bs-toggle="dropdown" aria-expanded="false">
+        
+         <h6>Mislina AYDIN </h6> 
+         
+        </button>
+       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item " routerLink="/profile/info"> <h4> Profil </h4>  </a></li>
+            <li><a  class="dropdown-item bg-warning text-dark" routerLink="" (click)="logOut()"> <h4> Çıkış Yap </h4> </a></li>
+          </ul>
+      </div>
+          
       </div>
     </div>
   </div>
 </nav>
+  

@@ -44,6 +44,10 @@ export class LoginComponent implements OnInit {
         console.log(response)
         this.toastrService.success(response.message,"Başarılı giriş")
         localStorage.setItem("token",response.data.token)
+        this.router.navigate(["cars"])
+        setTimeout(function () {
+          location.reload();
+        },600);
       },responseError=>{
         //console.log(responseError)
         this.toastrService.error(responseError.error)

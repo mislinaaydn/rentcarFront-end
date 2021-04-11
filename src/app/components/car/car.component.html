@@ -38,8 +38,8 @@
 <div class="row row-cols-5 row-cols-md-5 g-5">
   
   <div
-    class="card mb-2 col-md-2 mx-3 mt-3"
-    style="width: 23rem"
+    class="card border-primary  mb-3 mb-6 col-md-6 mx-4 mt-5"
+    style="width: 20rem"
     *ngFor="let car of cars | filterPipe: filterText"
   >
   <br>
@@ -47,8 +47,8 @@
       <img
         src="{{ apiUrl + car.carImagePath }}"
         class="card-img-top"
-        width="400"
-        height="250"
+        width="260"
+        height="200"
       />
       <div class="card-body">
         <h5 class="card-title text-center text-danger">misgibiyazilim</h5>

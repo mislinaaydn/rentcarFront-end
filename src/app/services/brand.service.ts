@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { listResponseModel } from '../models/listResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { Brand } from '../models/brand';
 import { ResponseModel } from '../models/responseModel';
 import { ItemResponseModel } from '../models/ItemResponseModel';
@@ -15,21 +15,21 @@ export class BrandService {
   constructor(private httpClient:HttpClient) { }
 
 
-  getBrands():Observable< listResponseModel<Brand>>{
-   return this.httpClient.get<listResponseModel<Brand>>(this.apiUrl);
+  getBrands():Observable< ListResponseModel<Brand>>{
+   return this.httpClient.get<ListResponseModel<Brand>>(this.apiUrl);
   }
   add(brand: Brand): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "add", brand);
   }
   
-  update(brand: Brand):Observable<listResponseModel<Brand>>{
+  update(brand: Brand):Observable<ListResponseModel<Brand>>{
     let newPath = this.apiUrl + "update";
-    return this.httpClient.post<listResponseModel<Brand>>(newPath,brand);
+    return this.httpClient.post<ListResponseModel<Brand>>(newPath,brand);
   }
 
-  delete(brand: Brand):Observable<listResponseModel<Brand>>{
+  delete(brand: Brand):Observable<ListResponseModel<Brand>>{
     let newPath = this.apiUrl + "delete";
-    return this.httpClient.post<listResponseModel<Brand>>(newPath,brand);
+    return this.httpClient.post<ListResponseModel<Brand>>(newPath,brand);
   
 }
 getbyId(brandId:number):Observable<ItemResponseModel<Brand>>{

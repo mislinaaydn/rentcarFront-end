@@ -76,7 +76,7 @@ export class PaymentComponent implements OnInit {
       this.paymentService.add(PaymentModel).subscribe(response =>{
         
         this.toastrService.success(response.message,"Başarılı Eklendi")
-        
+       
        
       }
       );

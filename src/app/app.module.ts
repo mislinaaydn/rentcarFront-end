@@ -37,6 +37,8 @@ import { BrandListComponent } from './components/brand/brand-list/brand-list.com
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 
 import { FilterComponent } from './components/filter/filter.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
@@ -69,6 +71,14 @@ import { FilterComponent } from './components/filter/filter.component';
     BrandUpdateComponent,
    
     FilterComponent,
+   
+
+   
+    CartSummaryComponent,
+   
+
+   
+    UserComponent,
     
     
   ],

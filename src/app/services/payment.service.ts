@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { listResponseModel } from '../models/listResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { Payment } from '../models/payment';
 import { Rental } from '../models/rental';
 import { ResponseModel } from '../models/responseModel';
@@ -20,8 +20,8 @@ export class PaymentService {
 
     return this.httpClient.post<ResponseModel>(newPath,{payment:{amount:amount},rental:rental})
   }
-  getPayment():Observable<listResponseModel<Payment>>{
-    return this.httpClient.get<listResponseModel<Payment>>(this.apiUrl)
+  getPayment():Observable<ListResponseModel<Payment>>{
+    return this.httpClient.get<ListResponseModel<Payment>>(this.apiUrl)
   }
   add(rental:Rental):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"/cards/add",rental)

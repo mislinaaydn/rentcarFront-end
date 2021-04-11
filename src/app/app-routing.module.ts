@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:"payments/:carId" , component:PaymentComponent},
   {path:"rentals/add" , component:RentalAddComponent},
  
-  {path:"payment" , component:PaymentComponent},
+  {path:"payment/:rental" , component:PaymentComponent},
   {path:"brands",component:BrandComponent},
   {path:"colors",component:ColorComponent},
   {path:"customers",component:CustomerComponent},
