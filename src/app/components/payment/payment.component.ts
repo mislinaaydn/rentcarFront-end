@@ -5,8 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { carImage } from 'src/app/models/carImage';
 import { Rental } from 'src/app/models/rental';
+import { User } from 'src/app/models/user';
 import { CarService } from 'src/app/services/car.service';
 import { PaymentService } from 'src/app/services/payment.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-payment',
@@ -16,7 +18,6 @@ import { PaymentService } from 'src/app/services/payment.service';
 export class PaymentComponent implements OnInit {
 
   car:Car;
-  carDetails:Car[];
   rental:Rental;
   rental2 : Rental[] = [];
   carImages : carImage[] = [];
@@ -25,7 +26,7 @@ export class PaymentComponent implements OnInit {
   rentDate:Date;
   returnDate:Date;
   amountPayment:number=0;
-
+  user:User
  cardAddForm : FormGroup
 
   constructor(
@@ -35,7 +36,8 @@ export class PaymentComponent implements OnInit {
     private router:Router,
     private toastrService:ToastrService,
     private paymentService:PaymentService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private userService:UserService
 
   ) { }
 
@@ -56,7 +58,15 @@ export class PaymentComponent implements OnInit {
         }
       })
 
+  } 
+
+  getUserByEmail(){
+    this.userService.getUserByEmail(localStorage.getItem("email")).subscribe((response)=>{
+        this.user = response.data;
+    })
   }
+
+
 
 
   createPaymentAddForm(){
@@ -75,8 +85,11 @@ export class PaymentComponent implements OnInit {
       let PaymentModel = Object.assign({},this.cardAddForm.value)
       this.paymentService.add(PaymentModel).subscribe(response =>{
         
-        this.toastrService.success(response.message,"Başarılı Eklendi")
-       
+        this.toastrService.success(response.message," Ödeme başarılı")
+        this.router.navigate(["cars"])
+        setTimeout(function () {
+          location.reload();
+        },600);
        
       }
       );
@@ -96,7 +109,7 @@ export class PaymentComponent implements OnInit {
   getCarDetail(){
     this.carService.getCarDetailsByCarId(this.rental.carId).subscribe(reponse=>
       {
-        this.carDetails=reponse.data;
+        this.car=reponse.data;
         this.paymentCalculator();
       })
     }
@@ -120,4 +133,5 @@ export class PaymentComponent implements OnInit {
     }
     
   }
+
 }

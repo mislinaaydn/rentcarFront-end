@@ -10,4 +10,5 @@ export interface Car {
   description: string;
   carImagePath:string;
   carImageDate:string;
+  minFindex: number
 }

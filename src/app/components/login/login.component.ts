@@ -3,6 +3,7 @@ import {  FormGroup , FormBuilder , Validators, FormControl  } from "@angular/fo
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     private formBuilder:FormBuilder,
     private authService:AuthService,
     private toastrService:ToastrService,
-    private router:Router
+    private router:Router,
+    private userService:UserService
 
     ) { }
 
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
         console.log(response)
         this.toastrService.success(response.message,"Başarılı giriş")
         localStorage.setItem("token",response.data.token)
+        localStorage.setItem("email",loginModel.email)
         this.router.navigate(["cars"])
         setTimeout(function () {
           location.reload();

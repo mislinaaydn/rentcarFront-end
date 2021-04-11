@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { Car } from '../models/car';
 import { ResponseModel } from '../models/responseModel';
 import { ItemResponseModel } from '../models/ItemResponseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root',
@@ -30,9 +31,9 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
 
-  getCarDetailsByCarId(carId: number): Observable<ListResponseModel<Car>> {
-    let newPath = this.apiUrl + 'cars/getcardetail?carId=' + carId;
-    return this.httpClient.get<ListResponseModel<Car>>(newPath);
+  getCarDetailsByCarId(carId: number): Observable<SingleResponseModel<Car>> {
+    let newPath = this.apiUrl + 'cars/getcardetailbyid?carId=' + carId;
+    return this.httpClient.get<SingleResponseModel<Car>>(newPath);
   }
 
   add(car: Car): Observable<ResponseModel> {

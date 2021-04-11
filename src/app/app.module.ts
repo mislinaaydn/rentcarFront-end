@@ -38,7 +38,7 @@ import { BrandUpdateComponent } from './components/brand/brand-update/brand-upda
 
 import { FilterComponent } from './components/filter/filter.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { UserComponent } from './components/user/user.component';
+
 
 
 @NgModule({
@@ -78,7 +78,11 @@ import { UserComponent } from './components/user/user.component';
    
 
    
-    UserComponent,
+  
+   
+
+   
+  
     
     
   ],

@@ -6,6 +6,8 @@ import { carImage } from 'src/app/models/carImage';
 import { CarService } from 'src/app/services/car.service';
 import { CarimageService } from 'src/app/services/carimages.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-car-detail',
@@ -18,13 +20,15 @@ export class CarDetailComponent implements OnInit {
   carImages: carImage[] = [];
   apiUrl="https://localhost:44324/"
   currentImage: carImage;
+  user:User
 
   constructor(
     private carService: CarService,
     private carImageService: CarimageService,
     private activateRoute: ActivatedRoute,
     private toastrServive  :ToastrService,
-    private router:Router
+    private router:Router,
+    private userService:UserService
   
 
   ) {}
@@ -35,13 +39,20 @@ export class CarDetailComponent implements OnInit {
       this.getCarDetailsByCarId(params["carId"]);
       this.getCarImages(params["carId"]);
     }
+    this.getUserByEmail();
   })}
 
 getCarDetailsByCarId(carId: number) {
   this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
-    this.car = response.data[0];
+    this.car = response.data;
    
   });
+}
+
+getUserByEmail(){
+  this.userService.getUserByEmail(localStorage.getItem("email")).subscribe((response)=>{
+    this.user = response.data
+  })
 }
 getCarImages(carId:number){
   this.carImageService.getCarImages(carId).subscribe((response)=>{
@@ -49,6 +60,7 @@ getCarImages(carId:number){
     
   })
 }
+
 
 
 getCurrentImageClass(image:carImage ){

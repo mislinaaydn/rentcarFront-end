@@ -1,16 +1,18 @@
-  
-<h5>Renk Listesi</h5>
-<table class="table table-bordered table-condensed table-hover">
+   <br><br>
+   <button routerLink="/cars" type="button" class="btn-close"  aria-label="Close" ></button>
+<h1 class="text-center text-light">Renk Listesi</h1>
+<table class="table table-bordered table-condensed table-hover" style="background-color:#beaeae ">
     <thead class="thead-dark">
-        <tr scope="col">Renk</tr>
-        <th>İşlemler</th>
+      
+      
     </thead>
     <tbody>
         <tr *ngFor = "let color of colors">
-            <td>{{color.colorName}}</td>
+            <td><h5>{{color.colorName}}</h5></td>
             <td class="operations">
-                <button class="btn btn-info" routerLink="/colors/update/{{color.colorId}}">Güncelle</button>
-                <button class="btn btn-primary" (click)="deleteColor(color)">Sil</button>
+                <button class="btn btn-outline-success" routerLink="/colors/update/{{color.colorId}}">Güncelle</button>
+                <button class="btn btn-outline-danger" (click)="deleteColor(color)">Sil</button>
+                <br>
             </td>
         </tr>
     </tbody>

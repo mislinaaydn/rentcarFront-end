@@ -93,12 +93,17 @@
         </td>
         <td>
           <button
+          *ngIf="car?.minFindex <= user.findexPoint"
             routerLink="/rentals/{{car.carId}}"
             type="button"
             class="btn btn-outline-dark"
           >
             <h3>Kirala</h3>
           </button>
+          <div *ngIf="car?.minFindex > user.findexPoint"
+          class="alert alert-primary" role="alert">
+            Findex puanınız ({{user?.findexPoint}}) bu araç için yeterli değil.
+          </div>
         </td>
       </tr>
     </tbody>

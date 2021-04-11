@@ -171,16 +171,16 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let car of carDetails">
-                                  <td>{{ rental.rentDate }}</td>
-                                  <td>{{ rental.returnDate }}</td>
-                                  <td>{{ car.brandName }}</td>
-                                  <td>{{ car.colorName }}</td>
+                                <tr>
+                                  <td>{{ rental?.rentDate }}</td>
+                                  <td>{{ rental?.returnDate }}</td>
+                                  <td>{{ car?.brandName }}</td>
+                                  <td>{{ car?.colorName }}</td>
 
-                                  <td>{{ car.dailyPrice | currency: "₺" }}</td>
+                                  <td>{{ car?.dailyPrice | currency: "₺" }}</td>
                                   <td>
                                     <strong class="text-danger">{{
-                                      car.dailyPrice * amountPayment
+                                      car?.dailyPrice * amountPayment
                                         | currency: "₺"
                                     }}</strong>
                                   </td>

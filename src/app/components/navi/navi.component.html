@@ -11,7 +11,9 @@
     <br>
     <a class="btn btn-outline-warning" aria-current="page" href="#">
       <h6>ANASAYFA</h6>
-    </a> <app-cart-summary></app-cart-summary>
+
+    </a> 
+   
     <div class="container">
       <button
         class="navbar-toggler"
@@ -131,23 +133,43 @@
         <li><hr class="dropdown-divider" /></li>
       </ul>
       <li></li>
-      <form class="d-flex" *ngIf="checkIfLogin()==false">
-        <button   routerLink="/login"  class="btn btn-lg btn-info" type="button"> <h4> Giriş Yap </h4>   </button> 
-      </form>
-
-      <div class="dropdown" *ngIf="checkIfLogin()==true" >
-
-        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" 
-        data-bs-toggle="dropdown" aria-expanded="false">
-        
-         <h6>Mislina AYDIN </h6> 
-         
-        </button>
-       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item " routerLink="/profile/info"> <h4> Profil </h4>  </a></li>
-            <li><a  class="dropdown-item bg-warning text-dark" routerLink="" (click)="logOut()"> <h4> Çıkış Yap </h4> </a></li>
+      <div>
+        <form class="d-flex" *ngIf="checkIfLogin()==false" >
+          <button   routerLink="/login"  class="btn btn-lg btn-info" type="button"> <h4> Giriş Yap </h4>   </button> 
+        </form>
+      <ul
+        class="navbar-nav me-auto mb-2 mb-lg-0"
+        *ngIf="checkIfLogin()==true" 
+      >
+        <li class="nav-item dropdown right">
+          <a
+            class="nav-link dropdown-toggle text-light"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+          
+            {{ user?.firstName }}
+            {{ user?.lastName }} (Findex : {{ user?.findexPoint }})
+          </a>
+  
+          <ul
+            class="dropdown-menu colorlb"
+            aria-labelledby="navbarDropdown"
+          >
+            
+            <li>
+              <a class="dropdown-item" (click)="logOut()"
+                ><i class="bi bi-power"></i> Çıkış Yap</a
+              >
+            </li>
           </ul>
-      </div>
+        </li>
+      </ul>
+          </div>
+
+
           
       </div>
     </div>

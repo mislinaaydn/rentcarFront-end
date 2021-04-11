@@ -55,7 +55,7 @@ export class CarUpdateComponent implements OnInit {
   }
   getCarById(carId:number){
     this.carService.getCarDetailsByCarId(carId).subscribe(response =>{
-     this.car = response.data[0];
+     this.car = response.data;
     })
   }
 
